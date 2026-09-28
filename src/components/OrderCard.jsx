@@ -10,26 +10,26 @@ function OrderCard() {
 
     setIsOrdering(true);
 
+    // Truck travels + stops for 1 second
     setTimeout(() => {
       setIsOrdering(false);
       setSuccess(true);
 
+      // Keep success visible for 3 seconds
       setTimeout(() => {
         setSuccess(false);
       }, 3000);
-    }, 3500);
+    }, 2800);
   };
 
   return (
     <div className="order-area">
-
       <OrderButton
         isOrdering={isOrdering}
         success={success}
         onClick={handleOrder}
       />
 
-      {/* ONLY PAPERS */}
       {success && (
         <div className="confetti-box">
           {Array.from({ length: 35 }).map((_, index) => (
@@ -40,7 +40,6 @@ function OrderCard() {
           ))}
         </div>
       )}
-
     </div>
   );
 }
